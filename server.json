@@ -1,0 +1,25 @@
+{
+  "foods": [
+    {
+      "id": 1,
+      "name": "Macarrão",
+      "description": "Macarrão ao molho vermelho, tomate cereja e manjericão.",
+      "price": 19.9,
+      "imageUrl": "https://i0.statig.com.br/bancodeimagens/69/b2/my/69b2mydwu808ftj2k95ehggwd.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Strogonoff",
+      "description": "Arroz, stronogonoff de frango, champignon e batata palha ",
+      "price": 21.9,
+      "imageUrl": "https://4.bp.blogspot.com/-9gFQoJ4IlAE/WyLSu9fqNhI/AAAAAAAAND0/3Ab_DDh-CO0e7D3VWiND0MrkFLGt5nT-ACLcBGAs/s1600/strogonoff-de-frango.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Lasanha",
+      "description": "Lasanha de carne regada ao molho vermelho.",
+      "price": 25.9,
+      "imageUrl": "https://i.ytimg.com/vi/FrdumyhYaZY/maxresdefault.jpg"
+    }
+  ]
+}
