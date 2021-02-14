@@ -16,7 +16,7 @@ const Routes: React.FC = () => (
       headerTintColor: '#FFF',
       headerTitleAlign: 'center',
       cardStyle: {
-        backgroundColor: '#F3F3F3',
+        backgroundColor: '#FFF',
       },
     }}
   >
