@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import Cart from '../pages/Cart';
 import ListProducts from '../pages/ListProducts';
+import { ShoppingCartIcon } from '../components/ShoppingCartIcon';
 
 const Router = createStackNavigator();
 
@@ -25,6 +26,9 @@ const Routes: React.FC = () => (
       component={ListProducts}
       options={() => ({
         headerTitle: 'Produtos',
+        headerRight: () => (
+          <ShoppingCartIcon />
+        ),
       })}
     />
     <Router.Screen
