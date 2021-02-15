@@ -6,6 +6,7 @@ import { Container, ButtonText } from './styles';
 interface ButtonProps extends RectButtonProperties {
   children: string,
   background: string,
+  enabled: boolean,
 }
 
 const Button:React.FC<ButtonProps> = ({ children, background, ...rest }: ButtonProps) => (
