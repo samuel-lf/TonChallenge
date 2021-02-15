@@ -1,25 +1,22 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { useSelector } from 'react-redux';
 import { Container, NumberBadge, TextBadge } from './styles';
-// import { connect } from 'react-redux';
+import IProduct from '../../models/IProduct';
+
 Icon.loadFont();
 
 export const ShoppingCartIcon:React.FC = () => {
   const navigation = useNavigation();
+  const item = useSelector((state:IProduct[]) => state);
 
   return (
     <Container>
       <NumberBadge>
-        <TextBadge>0</TextBadge>
+        <TextBadge>{item.length}</TextBadge>
       </NumberBadge>
       <Icon onPress={() => { navigation.navigate('Cart'); }} name="ios-cart" size={35} />
     </Container>
   );
 };
-
-// const mapStateToProps = (state) => ({
-//   cartItems: state,
-// });
-
-// export default connect(mapStateToProps)(withNavigation(ShoppingCartIcon));
