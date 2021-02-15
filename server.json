@@ -20,6 +20,20 @@
       "description": "Lasanha de carne regada ao molho vermelho.",
       "price": 25.9,
       "imageUrl": "https://i.ytimg.com/vi/FrdumyhYaZY/maxresdefault.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Batata frita",
+      "description": "Porção de 1kg de batata frita",
+      "price": 16.99,
+      "imageUrl": "https://s2.glbimg.com/6TYFXwek9ZpNXFeOzas09KizMKk=/0x0:1280x853/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2020/T/K/Hh8h2GR96v392DAkAqyA/912c9713-321e-4dfd-bca9-888c05c5ce50.jpeg"
+    },
+    {
+      "id": 5,
+      "name": "Sorvete de chocolate",
+      "description": "Copo de 300ml com sorvete de chocolate",
+      "price": 5,
+      "imageUrl": "https://s2.glbimg.com/F-orwt70gDefgfjHGCKkKTHquNw=/0x0:4561x3153/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2019/V/w/ESsbzoTuG3kA0Wo2VKlQ/shutterstock-1010248351.jpg"
     }
   ]
 }
