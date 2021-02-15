@@ -40,7 +40,7 @@ const ListProducts: React.FC = () => {
               description={item.description}
               price={item.price}
             >
-              <Button onPress={() => { addProduct(item); }}>
+              <Button onPress={() => { addProduct(item); }} background="primary">
                 Adicionar ao carrinho
               </Button>
             </CardProduct>
