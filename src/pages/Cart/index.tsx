@@ -47,7 +47,7 @@ const Cart: React.FC = () => {
                   description={item.description}
                   price={item.price}
                 >
-                  <Button onPress={() => { removeProduct(item); }} background="danger">
+                  <Button onPress={() => { removeProduct(item); }} background="danger" enabled>
                     Remover ao carrinho
                   </Button>
                 </CardProduct>
