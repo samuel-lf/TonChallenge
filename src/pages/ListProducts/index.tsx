@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import CardProduct from '../../components/CardProduct';
 import Button from '../../components/Button';
 import { Container, ContainerProducts } from './styles';
@@ -7,9 +8,10 @@ import IProduct from '../../models/IProduct';
 
 const ListProducts: React.FC = () => {
   const [foods, setFoods] = useState<IProduct[]>([]);
+  const dispach = useDispatch();
 
   useEffect(() => {
-    async function anyNameFunction(): Promise<void> {
+    async function requestGetFoods(): Promise<void> {
       const response = await getFoods();
       setFoods(
         response.data.map((food: IProduct) => ({
@@ -17,8 +19,12 @@ const ListProducts: React.FC = () => {
         })),
       );
     }
-    anyNameFunction();
+    requestGetFoods();
   }, []);
+
+  const addProduct = (item: IProduct) => {
+    dispach({ type: 'ADD_TO_CART', payload: item });
+  };
 
   return (
     <>
@@ -34,7 +40,9 @@ const ListProducts: React.FC = () => {
               description={item.description}
               price={item.price}
             >
-              <Button>Adicionar ao carrinho</Button>
+              <Button onPress={() => { addProduct(item); }}>
+                Adicionar ao carrinho
+              </Button>
             </CardProduct>
           )}
         />
