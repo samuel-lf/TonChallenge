@@ -7,21 +7,25 @@ import {
   Container, ContainerNoHasItens,
   ContainerProducts, ContainerTotal, NumberTotal, TextNoHasItens, TextTotal,
 } from './styles';
-import IProduct from '../../models/IProduct';
 import formatValueToBRL from '../../utils/formatValueToBRL';
+import IState from '../../models/IState';
+import Product from '../../models/IProductInList';
+import { cartRemoveProduct } from '../../stores/actions/cartProducts';
+import { listRemoveProductToCart } from '../../stores/actions/listProducts';
 
 Icon.loadFont();
 
 const Cart: React.FC = () => {
-  const foods = useSelector((state:IProduct[]) => state);
-  const dispach = useDispatch();
+  const products = useSelector((state:IState) => state.cartProducts);
+  const dispatch = useDispatch();
 
-  const removeProduct = (food: IProduct) => {
-    dispach({ type: 'REMOVE_FROM_CART', payload: food });
+  const remove = (food: Product) => {
+    dispatch(cartRemoveProduct([food]));
+    dispatch(listRemoveProductToCart([food]));
   };
 
   const verifyTotal = () => {
-    const total = foods.reduce((acc, item) => acc + item.price, 0);
+    const total = products.reduce((acc, item) => acc + item.price, 0);
 
     return formatValueToBRL(total);
   };
@@ -29,39 +33,39 @@ const Cart: React.FC = () => {
   return (
     <>
       {
-      foods.length !== 0 ? (
-        <>
-          <ContainerTotal>
-            <TextTotal>Total</TextTotal>
-            <NumberTotal>{verifyTotal()}</NumberTotal>
-          </ContainerTotal>
-          <Container horizontal>
-            <ContainerProducts<React.ElementType>
-              data={foods}
-              keyExtractor={(food: IProduct) => String(food.id)}
-              // eslint-disable-next-line react/no-unused-prop-types
-              renderItem={({ item }: { item: IProduct }) => (
-                <CardProduct
-                  imageURI={item.imageUrl}
-                  productName={item.name}
-                  description={item.description}
-                  price={item.price}
-                >
-                  <Button onPress={() => { removeProduct(item); }} background="danger" enabled>
-                    Remover ao carrinho
-                  </Button>
-                </CardProduct>
-              )}
-            />
-          </Container>
-        </>
-      ) : (
-        <ContainerNoHasItens>
-          <TextNoHasItens>Carrinho vazio</TextNoHasItens>
-          <Icon name="emoticon-sad-outline" size={50} color="#bbbb" />
-        </ContainerNoHasItens>
-      )
-    }
+        products.length !== 0 ? (
+          <>
+            <ContainerTotal>
+              <TextTotal>Total</TextTotal>
+              <NumberTotal>{verifyTotal()}</NumberTotal>
+            </ContainerTotal>
+            <Container horizontal>
+              <ContainerProducts<React.ElementType>
+                data={products}
+                keyExtractor={(food: Product) => String(food.id)}
+                // eslint-disable-next-line react/no-unused-prop-types
+                renderItem={({ item }: { item: Product }) => (
+                  <CardProduct
+                    imageURI={item.imageUrl}
+                    productName={item.name}
+                    description={item.description}
+                    price={item.price}
+                  >
+                    <Button onPress={() => { remove(item); }} background="danger" enabled>
+                      Remover ao carrinho
+                    </Button>
+                  </CardProduct>
+                )}
+              />
+            </Container>
+          </>
+        ) : (
+          <ContainerNoHasItens>
+            <TextNoHasItens>Carrinho vazio</TextNoHasItens>
+            <Icon name="emoticon-sad-outline" size={50} color="#bbbb" />
+          </ContainerNoHasItens>
+        )
+      }
     </>
   );
 };
