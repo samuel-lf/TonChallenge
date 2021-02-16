@@ -21,6 +21,8 @@
         "react-hooks"
     ],
     "rules": {
+        "no-param-reassign": "off",
+        "no-case-declarations": "off",
         "react/jsx-props-no-spreading": "off",   
         "import/prefer-default-export": "off",
         "react-hooks/rules-of-hooks": "error",
