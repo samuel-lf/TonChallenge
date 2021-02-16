@@ -1,25 +1,25 @@
 import IProductInList from '../../models/IProductInList';
 
-export const ADD_PRODUCTS = 'ADD_PRODUCTS';
-export const ADD_PRODUCT_TO_CART = 'ADD_PRODUCT_TO_CART';
-export const REMOVE_PRODUCT_TO_CART = 'REMOVE_PRODUCT_TO_CART';
+export const LIST_ADD_PRODUCTS = 'LIST_ADD_PRODUCTS';
+export const LIST_ADD_PRODUCT_TO_CART = 'LIST_ADD_PRODUCT_TO_CART';
+export const LIST_REMOVE_PRODUCT_TO_CART = 'LIST_REMOVE_PRODUCT_TO_CART';
 
 interface ActionProduct {
   payload: IProductInList[];
   type: string;
 }
 
-export const addProducts = (products: IProductInList[]): ActionProduct => ({
-  type: ADD_PRODUCTS,
+export const addProductsToList = (products: IProductInList[]): ActionProduct => ({
+  type: LIST_ADD_PRODUCTS,
   payload: products,
 });
 
-export const addProductToCart = (product: IProductInList[]): ActionProduct => ({
-  type: ADD_PRODUCT_TO_CART,
+export const listAddProductToCart = (product: IProductInList[]): ActionProduct => ({
+  type: LIST_ADD_PRODUCT_TO_CART,
   payload: product,
 });
 
-export const removeProductToCart = (product: IProductInList[]): ActionProduct => ({
-  type: REMOVE_PRODUCT_TO_CART,
+export const listRemoveProductToCart = (product: IProductInList[]): ActionProduct => ({
+  type: LIST_REMOVE_PRODUCT_TO_CART,
   payload: product,
 });

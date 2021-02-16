@@ -1,5 +1,5 @@
 import IProductInList from '../../models/IProductInList';
-import { ADD_TO_CART, REMOVE_FROM_CART } from '../actions/cartProducts';
+import { CART_ADD_PRODUCT, CART_REMOVE_PRODUCT } from '../actions/cartProducts';
 
 const INITIAL_STATE:IProductInList[] = [];
 
@@ -8,11 +8,11 @@ interface ActionProduct {
   type: string;
 }
 
-const cartItems = (state = INITIAL_STATE, action: ActionProduct): IProductInList[] => {
+const cartProducts = (state = INITIAL_STATE, action: ActionProduct): IProductInList[] => {
   switch (action.type) {
-    case ADD_TO_CART:
+    case CART_ADD_PRODUCT:
       return [...state, action.payload[0]];
-    case REMOVE_FROM_CART:
+    case CART_REMOVE_PRODUCT:
       return state.filter((cartItem: IProductInList) => cartItem.id !== action.payload[0].id);
     default:
       break;
@@ -21,4 +21,4 @@ const cartItems = (state = INITIAL_STATE, action: ActionProduct): IProductInList
   return state;
 };
 
-export default cartItems;
+export default cartProducts;

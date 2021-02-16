@@ -12,13 +12,13 @@ import Routes from './routes';
 import store from './stores';
 
 const App: React.FC = () => (
-  <NavigationContainer>
-    <Provider store={store}>
+  <Provider store={store}>
+    <NavigationContainer>
       <View style={{ flex: 1 }}>
         <Routes />
       </View>
-    </Provider>
-  </NavigationContainer>
+    </NavigationContainer>
+  </Provider>
 );
 
 export default App;
