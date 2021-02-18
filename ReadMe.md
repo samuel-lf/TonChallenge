@@ -47,6 +47,13 @@ OU
 $ npm run ios
 ```
 
+4. Executando o servidor:
+
+```
+# Rode o comando
+$ npx json-server server.json -p 3333
+```
+
 
 <h5 align="center">
   Feito com :heart: por <a href="https://www.linkedin.com/in/samuel-leonel-4a9ab7130/" target="_blank">Samuel Leonel</a>
